@@ -1,0 +1,11 @@
+.main {
+  background: url("../../assets/livingRoom.jpg") center center/cover no-repeat;
+  height: 70vh;
+}
+
+@media (max-width: 768px) {
+  app-product {
+    display: flex;
+    flex-direction: column;
+  }
+}
