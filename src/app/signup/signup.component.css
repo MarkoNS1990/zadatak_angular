@@ -1,0 +1,17 @@
+.signup {
+  background-image: url("../../assets/signupPattern.jpg");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forma {
+  background-color: #fff;
+  padding: 50px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 5px;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

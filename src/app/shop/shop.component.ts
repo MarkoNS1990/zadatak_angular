@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -6,19 +7,35 @@ import { ProductsService } from '../products.service';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit,OnDestroy {
   
   products=this.productsService.products
+  filteredProducts=[]
+  category=''
+  categories = [
+    {name:'Bedroom'},
+    {name:'Kitchen'},
+    {name:'Living Room'},
+    {name:'Bathroom'},
+]
   
-  getBedroom(){
+  
+
+  constructor(private productsService: ProductsService,private route: ActivatedRoute) {
+    this.route.queryParamMap.subscribe(params=>{
+      this.category=params.get('category')
+      this.filteredProducts=(this.category)?
+      this.products.filter(p=> p.type===this.category):this.products
+
+    })
     
-    return this.products.filter(product=>product.type==='bedroom')
-    
+   }
+  ngOnDestroy(): void {
+    // this.subscription.unsubscribe()
   }
 
-  constructor(private productsService: ProductsService) { }
-
   ngOnInit(): void {
+   
     
   }
 

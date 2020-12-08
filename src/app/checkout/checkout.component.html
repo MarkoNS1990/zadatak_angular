@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="checkout">
+    <form >
+        <div class="form-group">
+    <input class='form-control' type="text" placeholder="Name" ngModel name='name'><br>
+    <input class='form-control' type="text" placeholder="Last Name" ngModel name='lastName'><br>
+    <input class='form-control' type="email" placeholder="Email" ngModel name='email'><br>
+    <input class='form-control' type="text" placeholder="Phone number" ngModel name='phone'><br>
+    <input class='form-control' type="text" placeholder="Adress" ngModel name='adress'><br>
+    <p class='lead'>Payment type:</p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+          Credit Card
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+          Paypal
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+          Payment on Delivery
+        </label>
+      </div>
+      <textarea cols="30" rows="10" class='form-control' placeholder='How did you hear about us?'></textarea><br>
+    <button class="btn btn-primary btn-lg btn-block mt-2">Confirm</button>
+    
+    
+</div>
+</form>   
+</div>

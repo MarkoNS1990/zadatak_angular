@@ -17,18 +17,18 @@
     <div class="col-md-8">
         <form >
             <div class="form-group">
-        <input class='form-control' type="text" placeholder="Name"><br>
-        <input class='form-control' type="email" placeholder="Email"><br>
-        <input class='form-control' type="text" placeholder="Subject"><br>
+        <input class='form-control' type="text" placeholder="Name" ngModel name='name'><br>
+        <input class='form-control' type="email" placeholder="Email" ngModel name='email'><br>
+        <input class='form-control' type="text" placeholder="Subject" ngModel name='subject'><br>
         <textarea cols="30" rows="10" class='form-control' placeholder='Message'></textarea><br>
         <button class="btn btn-primary btn-lg btn-block mb-4">Send</button>
         <p>Get our newsletters</p>
         <div class="input-group">
-            <input type="email" class='form-control' placeholder='Enter your email here'>
-            <button class="btn btn-dark">Subscribe now</button>
+            <input type="email" class='form-control' placeholder='Enter your email here' [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            
         </div>
     </div>
     </form>   
-   
+    <button class="btn btn-dark" (click)='onSubscribe()'>Subscribe now</button>
     </div>
 </div>

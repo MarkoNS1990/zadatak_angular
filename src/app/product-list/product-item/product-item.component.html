@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container">
+<h3>Home/Shop/{{productItem.naziv}}</h3>
+<hr>
+
+<div class="row">
+    <div class="col-md-7"><img [src]="productItem.productUrl" [alt]="productItem.naziv" height='300px' width='400px'></div>
+    <div class="col">
+        <h4>{{productItem.naziv}}</h4>
+        <p class="lead">{{productItem.cena}} RSD</p>
+        <p class="lead text-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quaerat maiores nesciunt illum optio magni architecto repellendus, ducimus suscipit soluta.</p>
+        <hr>
+        <div class="col-xs-2">
+            <label for="quantity">Quantity</label>
+            <input type="number" class="form-control col-sm-2 mb-2" id='quantity' (input)='getQuantity($event)'>
+            
+        </div>
+        <button class="btn btn-primary" (click)='onAddToCart()'>Add to cart</button>
+        <button class="btn btn-secondary ml-2" routerLink='/shopping-cart'>Go to basket</button>
+    </div>
+    
+</div>
+</div>
+
