@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  
+  
+  constructor(public authService: AuthService,private router:Router,private route:ActivatedRoute) { }
 
-  constructor() { }
+  
+  
+  ngOnInit() {
+    
+   }
 
-  ngOnInit(): void {
-  }
+  
+  
 
 }

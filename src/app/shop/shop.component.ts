@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
 
@@ -7,7 +7,7 @@ import { ProductsService } from '../products.service';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent implements OnInit,OnDestroy {
+export class ShopComponent implements OnInit {
   
   products=this.productsService.products
   filteredProducts=[]
@@ -30,9 +30,7 @@ export class ShopComponent implements OnInit,OnDestroy {
     })
     
    }
-  ngOnDestroy(): void {
-    // this.subscription.unsubscribe()
-  }
+  
 
   ngOnInit(): void {
    

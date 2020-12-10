@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api'
+import {InMemoryLibrary} from'./in-memory-library';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -13,15 +15,19 @@ import { ShortenPipe } from './shorten.pipe';
 import { ProductItemComponent } from './product-list/product-item/product-item.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { AboutComponent } from './about/about.component';
 
 
 
 
 const appRoutes:Routes = [
   {path:'',component:MainComponent},
+  {path:'about',component:AboutComponent},
   {path:'shop',component:ShopComponent},
   {path:'shop/:id',component:ProductItemComponent},
   {path:'shopping-cart',component:ShoppingCartComponent},
@@ -44,6 +50,8 @@ const appRoutes:Routes = [
     LoginComponent,
     SignupComponent,
     CheckoutComponent,
+    SpinnerComponent,
+    AboutComponent,
     
     
     
@@ -51,7 +59,10 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryLibrary,{dataEncapsulation:false}),
+    HttpClientModule,
     
     
   ],

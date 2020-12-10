@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="login">
-    <form class='forma' (ngSubmit)='onSubmit(f)' #f='ngForm'>
+  <div *ngIf='isLoading'><app-spinner></app-spinner></div>
+    <form class='forma' (ngSubmit)='onSubmit(f)' #f='ngForm' *ngIf='!isLoading'>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ngModel name='email' required email #email='ngModel' >

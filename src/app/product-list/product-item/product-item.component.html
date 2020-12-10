@@ -1,6 +1,14 @@
 <app-navbar></app-navbar>
 <div class="container">
-<h3>Home/Shop/{{productItem.naziv}}</h3>
+    <div class="row">
+        <div class="col-md-10">
+            <h3 class='display-4'>Shop/{{productItem.naziv}}</h3>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-danger mt-3" routerLink='/shop'>Back to shop</button>
+        </div>
+    </div>
+
 <hr>
 
 <div class="row">
@@ -15,8 +23,16 @@
             <input type="number" class="form-control col-sm-2 mb-2" id='quantity' (input)='getQuantity($event)'>
             
         </div>
-        <button class="btn btn-primary" (click)='onAddToCart()'>Add to cart</button>
-        <button class="btn btn-secondary ml-2" routerLink='/shopping-cart'>Go to basket</button>
+        
+            <button class="btn btn-primary" (click)='onAddToCart()' [disabled]='!authService.registeredUser()' >Add to basket</button>
+            <button class="btn btn-secondary ml-2" routerLink='/shopping-cart' [disabled]='!authService.registeredUser()'>Proceed to checkout</button>
+        
+        
+        <ng-template [ngIf]='!authService.registeredUser()'>
+            <p style='color:red'>Please login to add items to basket.</p>
+            <a routerLink='/login'>login</a>
+        </ng-template>
+        
     </div>
     
 </div>

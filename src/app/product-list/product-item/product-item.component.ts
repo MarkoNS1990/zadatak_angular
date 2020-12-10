@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { CartService } from 'src/app/cart.service';
 import { ProductsService } from 'src/app/products.service';
 
@@ -15,7 +16,7 @@ export class ProductItemComponent implements OnInit {
   
   
 
-  constructor(private productsService: ProductsService,private route: ActivatedRoute,private cartService:CartService) { }
+  constructor(private productsService: ProductsService,private route: ActivatedRoute,private cartService:CartService,public authService: AuthService) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.params['id']
@@ -29,6 +30,8 @@ export class ProductItemComponent implements OnInit {
    onAddToCart(){
     for (let i = 0; i < this.quantity; i++) {
       this.cartService.addToCart(this.productItem)
+
+
       
     } 
     
