@@ -1,8 +1,12 @@
 <app-navbar></app-navbar>
 <div class="signup">
     <div *ngIf='isLoading'><app-spinner></app-spinner></div>
+    
     <form class='forma' (ngSubmit)='onSubmit(f)' #f='ngForm' *ngIf='!isLoading'>
         <div class="form-group">
+          <div class="alert alert-danger" *ngIf='authService.error'>
+            <span>{{authService.error}}</span>
+          </div>
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ngModel name='email' required email #email='ngModel'>
           <span class='help-block' *ngIf='!email.valid && email.touched'>Please enter valid email adress.</span>

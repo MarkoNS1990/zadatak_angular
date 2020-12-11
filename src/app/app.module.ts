@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api'
 import {InMemoryLibrary} from'./in-memory-library';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
@@ -63,6 +63,7 @@ const appRoutes:Routes = [
     ReactiveFormsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryLibrary,{dataEncapsulation:false}),
     HttpClientModule,
+    BrowserAnimationsModule
     
     
   ],

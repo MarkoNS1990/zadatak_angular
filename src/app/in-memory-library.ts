@@ -42,7 +42,7 @@ export class InMemoryLibrary implements InMemoryDbService{
               {
                 id:6,
                 naziv:'Bedroom',
-                cena:2000,
+                cena:40000,
                 productUrl:'../../assets/bedRoom.jpg',
                 type:'Bedroom'
               },

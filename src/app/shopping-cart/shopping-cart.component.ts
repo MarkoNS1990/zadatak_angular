@@ -8,7 +8,7 @@ import { CartService } from '../cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  cart
+  cart:any[]
   
   constructor(private cartService: CartService) { }
 
@@ -31,5 +31,8 @@ export class ShoppingCartComponent implements OnInit {
   
  onRemove(index){
     this.cart.splice(index,1)
+ }
+ onClear(){
+   this.cart=[]
  }
 }

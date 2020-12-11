@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
+import {trigger
+  ,state,
+  style,
+  animate,
+  transition
+  } from '@angular/animations'
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css']
+  styleUrls: ['./shop.component.css'],
+  
+  
+  
 })
 export class ShopComponent implements OnInit {
-  
+  state='normal'
   products=this.productsService.products
   filteredProducts=[]
   category=''
@@ -18,8 +27,8 @@ export class ShopComponent implements OnInit {
     {name:'Living Room'},
     {name:'Bathroom'},
 ]
-  
-  
+
+
 
   constructor(private productsService: ProductsService,private route: ActivatedRoute) {
     this.route.queryParamMap.subscribe(params=>{
@@ -30,7 +39,7 @@ export class ShopComponent implements OnInit {
     })
     
    }
-  
+   
 
   ngOnInit(): void {
    

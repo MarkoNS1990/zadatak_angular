@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 import { ProductsService } from '../products.service';
@@ -14,7 +15,7 @@ export class MainComponent implements OnInit {
   
   products 
   fragment
-  constructor(private productsService: ProductsService,private router:Router) { }
+  constructor(private productsService: ProductsService,private router:Router,public authService: AuthService) { }
 
   
   ngOnInit(): void {

@@ -25,12 +25,15 @@
         </div>
         
             <button class="btn btn-primary" (click)='onAddToCart()' [disabled]='!authService.registeredUser()' >Add to basket</button>
-            <button class="btn btn-secondary ml-2" routerLink='/shopping-cart' [disabled]='!authService.registeredUser()'>Proceed to checkout</button>
-        
+            <button class="btn btn-secondary ml-2" routerLink='/shopping-cart' [disabled]='!authService.registeredUser()||cartService.cart.length===0'>Proceed to checkout</button>
+        <div class="alert alert-success mt-2" *ngIf='message'>
+            <span>{{message}} </span>
+        </div>
         
         <ng-template [ngIf]='!authService.registeredUser()'>
-            <p style='color:red'>Please login to add items to basket.</p>
-            <a routerLink='/login'>login</a>
+            <p style='color:red'>You have to be logged in to add items to basket.</p>
+            <a routerLink='/login' class='mr-2'>login</a>
+            <a routerLink='/signup'>register</a>
         </ng-template>
         
     </div>

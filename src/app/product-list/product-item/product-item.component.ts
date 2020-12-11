@@ -13,10 +13,10 @@ export class ProductItemComponent implements OnInit {
   
   productItem:{id:number,naziv:string,productUrl:string,cena:number,type:string}
   quantity
-  
+  message:string=null
   
 
-  constructor(private productsService: ProductsService,private route: ActivatedRoute,private cartService:CartService,public authService: AuthService) { }
+  constructor(private productsService: ProductsService,private route: ActivatedRoute,public cartService:CartService,public authService: AuthService) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.params['id']
@@ -28,12 +28,19 @@ export class ProductItemComponent implements OnInit {
   }
  
    onAddToCart(){
-    for (let i = 0; i < this.quantity; i++) {
-      this.cartService.addToCart(this.productItem)
-
-
-      
-    } 
+    if(this.quantity>0){
+      for (let i = 0; i < this.quantity; i++) {
+        this.cartService.addToCart(this.productItem)
+         } 
+         +this.quantity===1?this.message=`A ${this.productItem.naziv} is added to basket`:this.message=`${this.quantity} ${this.productItem.naziv}s are added to basket`
+         setTimeout(() => {
+          this.message=null
+        }, 3000);
+        }
+    
+    
+    
+    
     
     console.log(this.cartService.cart)
    }

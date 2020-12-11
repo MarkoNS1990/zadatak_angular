@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     form.reset()
   }
 
-  constructor(private authService:AuthService) { }
+  constructor(public authService:AuthService) { }
 
   ngOnInit(): void {
   }

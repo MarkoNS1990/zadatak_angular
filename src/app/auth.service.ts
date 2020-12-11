@@ -9,38 +9,54 @@ import firebase from 'firebase'
   providedIn: 'root'
 })
 export class AuthService {
-  isLoading=false
+  isLoading = false
   token:string
+  error:string = null
+  success:string=null
+  logSuccess:string=null
+  logError:string=null
+
   signup(email:string, password:string){
+    this.error=null
+    
     this.isLoading=true
     firebase.auth().createUserWithEmailAndPassword(email,password)
     .then(res=>{
       this.isLoading=false
+      this.success=res.user.email
+      setTimeout(() => {
+        this.success=null
+      }, 3000);
       this.router.navigate(['/'])
-      console.log('User registered');
+      
     }).catch(err=>{
-      console.log(err);
+      this.error=err.message
+      this.isLoading=false
+
     })
   }
   login(email:string,password:string){
     
     firebase.auth().signInWithEmailAndPassword(email,password)
     .then(res=>{
-      
+      this.logSuccess=res.user.email
       this.router.navigate(['/'])
-      
+      setTimeout(() => {
+        this.logSuccess=null
+      }, 3000);
       firebase.auth().currentUser.getIdToken()
       .then(
         (token:string)=>{
           this.token=token
+          
         }
       )
 
       console.log('User logged in');
     }).catch(err=>{
       this.isLoading=false
-      console.log(err);
-      console.log('error');
+      this.logError=err.message
+      
     })
   }
 
