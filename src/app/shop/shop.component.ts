@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
-import {trigger
-  ,state,
-  style,
-  animate,
-  transition
-  } from '@angular/animations'
+
 
 @Component({
   selector: 'app-shop',
@@ -17,7 +12,7 @@ import {trigger
   
 })
 export class ShopComponent implements OnInit {
-  state='normal'
+  
   products=this.productsService.products
   filteredProducts=[]
   category=''

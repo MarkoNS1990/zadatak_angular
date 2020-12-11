@@ -1,11 +1,12 @@
 <app-navbar></app-navbar>
 <div class="row mt-4">
     <div class="col-md-3 text-center">
-        <h4>Categories</h4>
-        <hr>
-        <div class="list-group" *ngFor='let cat of categories' >
-            <a routerLink='/shop' [queryParams]="{category:cat.name}">{{cat.name}}</a> 
-        </div>
+        <h2 class='display-4 mb-3'>Categories</h2>
+        
+        <ul class="list-group" *ngFor='let cat of categories' >
+            <a routerLink='/shop' [queryParams]="{category:cat.name}" >  <li class="list-group-item list-group-item-success">
+            {{cat.name}} </li></a>
+        </ul>
     </div>
     <div class="col-md-9">
         <div class="row"  >

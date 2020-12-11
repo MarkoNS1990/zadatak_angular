@@ -32,8 +32,8 @@
         
         <ng-template [ngIf]='!authService.registeredUser()'>
             <p style='color:red'>You have to be logged in to add items to basket.</p>
-            <a routerLink='/login' class='mr-2'>login</a>
-            <a routerLink='/signup'>register</a>
+            <a routerLink='/login' class='mr-2 btn btn-light'>login</a>
+            <a routerLink='/signup' class='btn btn-light'>register</a>
         </ng-template>
         
     </div>

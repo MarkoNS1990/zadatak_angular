@@ -1,0 +1,7 @@
+a:hover {
+  text-decoration: none;
+}
+.list-group-item:hover {
+  background-color: #eeee;
+  transition: 0.5s ease;
+}
