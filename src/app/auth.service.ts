@@ -56,7 +56,9 @@ export class AuthService {
     }).catch(err=>{
       this.isLoading=false
       this.logError=err.message
-      
+      setTimeout(() => {
+        this.logError=null
+      }, 3000);
     })
   }
 

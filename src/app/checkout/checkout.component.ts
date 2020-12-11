@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class CheckoutComponent implements OnInit {
   payments=['Credit Card','Paypal','Pay On Delivery']
   checkoutForm: FormGroup;
-  constructor(private router:Router) { }
+  constructor(private router:Router,public cartService:CartService) { }
 
   ngOnInit(): void {
     this.checkoutForm= new FormGroup({
@@ -27,6 +28,7 @@ export class CheckoutComponent implements OnInit {
     console.log(this.checkoutForm.value.name);
     this.checkoutForm.reset()
     this.router.navigate(['/'])
+    this.cartService.cart=[]
   }
 
 }
