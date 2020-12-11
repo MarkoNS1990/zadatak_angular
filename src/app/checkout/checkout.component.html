@@ -17,7 +17,9 @@
     </div>
       <textarea cols="30" rows="10" class='form-control' placeholder='How did you hear about us?'></textarea><br>
     <button class="btn btn-primary btn-lg btn-block mt-2">Confirm</button>
-    
+    <div class="alert alert-success mt-2" *ngIf='message'>
+        <p>{{message}}</p>
+    </div>
     
 </div>
 </form>   

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
@@ -12,6 +12,7 @@ export class CheckoutComponent implements OnInit {
   payments=['Credit Card','Paypal','Pay On Delivery']
   checkoutForm: FormGroup;
   constructor(private router:Router,public cartService:CartService) { }
+  message:string=null
 
   ngOnInit(): void {
     this.checkoutForm= new FormGroup({
@@ -26,9 +27,17 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit(){
     console.log(this.checkoutForm.value.name);
-    this.checkoutForm.reset()
-    this.router.navigate(['/'])
+    this.message='Your purchase was successfull, redirecting to home page...'
+    
+    
+    setTimeout(() => {
+      this.message=null
+      this.checkoutForm.valid?this.router.navigate(['/']):null
+      this.checkoutForm.reset()
+    }, 2000);
+    
     this.cartService.cart=[]
+    
   }
 
 }
