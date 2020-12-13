@@ -2,12 +2,17 @@
 <div class="checkout">
     <form [formGroup]='checkoutForm' (ngSubmit)='onSubmit()'>
         <div class="form-group">
-    <input class='form-control' type="text" placeholder="Name"  name='name' formControlName='name'><br>
     
-    <input class='form-control' type="text" placeholder="Last Name"  name='lastName' formControlName='lastName'><br>
-    <input class='form-control' type="email" placeholder="Email"  name='email' formControlName='email'><br>
-    <input class='form-control' type="text" placeholder="Phone number"  name='phone' formControlName='phone'><br>
-    <input class='form-control' type="text" placeholder="Adress"  name='adress' formControlName='adress'><br>
+      <label for="name">Name</label>     
+     <input class='form-control' type="text" placeholder="Name"  name='name' formControlName='name'><br>
+     <label for="lastName">Last Name</label>  
+     <input class='form-control' type="text" placeholder="Last Name"  name='lastName' formControlName='lastName'><br>
+     <label for="email">Email</label>  
+     <input class='form-control' type="email" placeholder="Email"  name='email' formControlName='email'><br>
+     <label for="phone">Phone</label>  
+     <input class='form-control' type="text" placeholder="Phone number"  name='phone' formControlName='phone'><br>
+     <label for="adress">Adress</label>  
+     <input class='form-control' type="text" placeholder="Adress"  name='adress' formControlName='adress'><br>
     <p class='lead'>Payment type:</p>
     <div class="radio" *ngFor='let payment of payments'>
         <label>

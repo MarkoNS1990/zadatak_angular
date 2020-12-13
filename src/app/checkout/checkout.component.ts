@@ -26,8 +26,14 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.checkoutForm.value.name);
-    this.message='Your purchase was successfull, redirecting to home page...'
+    
+    if(this.checkoutForm.valid){
+      this.message='Your purchase was successfull, redirecting to home page...'
+      console.log(`${this.checkoutForm.value.name} ${this.checkoutForm.value.lastName} finished shopping`);
+    }else{
+      this.message='Please fill in all fields'
+    }
+    
     
     
     setTimeout(() => {
